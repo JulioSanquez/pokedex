@@ -1,0 +1,24 @@
+.home__form{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.home__input{
+    border: none;
+    box-shadow: -1px 2px 5px #0003;
+    padding: .5rem;
+}
+
+.home__btn{
+    border: none;
+    padding: .5rem;
+    background: var(--btn-color);
+    color: white;
+    cursor: pointer;
+}
+
+.home__btn:hover{
+    filter: brightness(1.6);
+}

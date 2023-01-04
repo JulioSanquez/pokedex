@@ -1,0 +1,10 @@
+.listPokemons{
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(min(270px, calc(100% - 1rem)), 1fr));
+    place-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+}
+
