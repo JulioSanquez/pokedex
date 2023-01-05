@@ -1,4 +1,12 @@
-.header{
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.header__nav{
     position: relative;
     height: 120px;
     width: 100%;
@@ -16,6 +24,7 @@
 
 .header__img{
     max-width: 350px;
+    cursor: pointer;
 }
 
 .header__circle{

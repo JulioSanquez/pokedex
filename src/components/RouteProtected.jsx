@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 import Header from '../layout/Header'
 
-const RouteProtected = () => {
+const RouteProtected = ({setUpButton}) => {
   const nameTrainer = useSelector(state => state.nameTrainer)
 
   if(nameTrainer){
     return (
      <>
-      <Header />
+      <Header setUpButton={setUpButton} />
       <Outlet />
      </> 
     )
