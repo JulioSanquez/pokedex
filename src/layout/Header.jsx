@@ -17,9 +17,9 @@ const Header = () => {
         <img className='header__img' src="/images/pokedex.png" />
         <div className='header__black'></div>
         <div className='header__circle'>
-            <div onClick={handleLogOut} className="header__circle-int">
-              <i className='bx bx-log-out-circle'></i>
-            </div>
+          <div onClick={handleLogOut} className="header__circle-int">
+            <i className='bx bx-log-out-circle'></i>
+          </div>
         </div>
     </header>
   )

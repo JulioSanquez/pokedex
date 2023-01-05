@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import ListPokemons from '../components/ListPokemons'
+import Pagination from '../components/Pagination'
 import { paginationLogic } from '../helpers/paginationLogic'
 import "./styles/Pokedex.css"
 
@@ -35,14 +36,6 @@ const Pokedex = () => {
       setPokemonsPerPage(e.target.value)
   }
 
-  const { lastPage, pagesInBlock, pokemonsInPage } = paginationLogic(currentPage, showPokemons, pokemonsPerPage)
-
-  const handleClickPage = newPage => setCurrentPage(newPage)
-  const handlePrevPage = e => setCurrentPage( currentPage - 1 < 1 ? lastPage : currentPage - 1 )
-  const handleNextPage = e => setCurrentPage( currentPage + 1 > lastPage ? 1 : currentPage + 1 )
-  const handleFirstPage = e => setCurrentPage(1)
-  const handleLastPage = e => setCurrentPage(lastPage)
-
   useEffect(() => {
     const URL = "https://pokeapi.co/api/v2/type/"
 
@@ -74,9 +67,10 @@ const Pokedex = () => {
   
   
 
+  const { pokemonsInPage } = paginationLogic(currentPage, showPokemons, pokemonsPerPage)
+
   return (
   <main>
-    <header className='pokedex__header'>
       <h1>Pokedex</h1>
       <p> Welcome <span>{nameTrainer}</span>, here you can get a pokemon for your adventures, go up, walk away, go for the glory </p>
       <form className='pokedex__form' onSubmit={handleSubmit}>
@@ -95,43 +89,20 @@ const Pokedex = () => {
           }
         </select>
       </form>
-      
-    <ul className='pokedex__listPages'>
-      {
-        (currentPage > 1) && <>
-          <li onClick={handlePrevPage}>{"<"}</li>
-          <li onClick={handleFirstPage}>{"..."}</li>
-        </>
-      }
-      {
-        pagesInBlock.map( pageInBlock => <li className={currentPage === pageInBlock ? "actualPage" : "" } onClick={ () => handleClickPage(pageInBlock) } key={pageInBlock}> {pageInBlock} </li> )
-      }
-      {
-        (currentPage != lastPage) && <>
-          <li onClick={handleLastPage}>{"..."}</li>
-          <li onClick={handleNextPage}>{">"}</li>
-        </>
-      }
-    </ul>
-    </header>
-    <ListPokemons pokemons={pokemonsInPage} />
-    <ul className='pokedex__listPages'>
-      {
-        (currentPage > 1) && <>
-          <li onClick={handlePrevPage}>{"<"}</li>
-          <li onClick={handleFirstPage}>{"..."}</li>
-        </>
-      }
-      {
-        pagesInBlock.map( pageInBlock => <li className={currentPage === pageInBlock ? "actualPage" : "" } onClick={ () => handleClickPage(pageInBlock) } key={pageInBlock}> {pageInBlock} </li> )
-      }
-      {
-        (currentPage != lastPage) && <>
-          <li onClick={handleLastPage}>{"..."}</li>
-          <li onClick={handleNextPage}>{">"}</li>
-        </>
-      }
-    </ul>
+
+      <Pagination 
+        currentPage={currentPage} 
+        setCurrentPage={setCurrentPage}
+        showPokemons={showPokemons} 
+        pokemonsPerPage={pokemonsPerPage} 
+      />
+      <ListPokemons pokemons={pokemonsInPage} />
+      <Pagination 
+        currentPage={currentPage} 
+        setCurrentPage={setCurrentPage}
+        showPokemons={showPokemons} 
+        pokemonsPerPage={pokemonsPerPage} 
+      />
   </main>
   )
 }

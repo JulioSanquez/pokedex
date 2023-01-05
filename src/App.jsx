@@ -45,7 +45,7 @@ function App() {
         <Route path='*' element={ <h1>Not Found</h1> } />
       
       </Routes>
-      <i onClick={handleUp} className={`bx bx-chevron-up-square App__btn ${upButton ? 'slideBtn' : ""}`}></i>
+        <i onClick={handleUp} className={`bx bx-chevron-up-square App__btn ${upButton ? 'slideBtn' : ""}`}></i>
       <Footer />
     </div>
   )

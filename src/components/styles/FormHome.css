@@ -3,6 +3,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 3rem;
 }
 
 .home__input{
