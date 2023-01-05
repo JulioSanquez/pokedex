@@ -1,6 +1,7 @@
 .App{
     position: relative;
     min-height: calc(100vh - 22px);
+    padding-top: 150px;
     padding-bottom: 120px;
 }
 

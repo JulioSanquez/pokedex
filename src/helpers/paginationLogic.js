@@ -16,7 +16,7 @@ export const paginationLogic = (currentPage, showPokemons, pokemonsPerPage) => {
    let pagesInBlock = []
    const pagesPerBlock = 5
    let actualBlock = 1
-   let lastBlock = Math.floor(  Math.ceil(showPokemons.length/ pokemonsInPage.length) / pagesPerBlock) 
+   let lastBlock = Math.floor(  Math.ceil(showPokemons.length/ pokemonsPerPage) / pagesPerBlock) 
    for (let currentBlock = 1; currentBlock * pagesPerBlock < currentPage ;  currentBlock++) {
     actualBlock = currentBlock + 1
    }

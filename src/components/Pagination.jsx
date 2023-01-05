@@ -19,9 +19,7 @@ const Pagination = ({currentPage, showPokemons, pokemonsPerPage, setCurrentPage 
   return (
     <ul className='pokedex__listPages'>
     {
-      (currentPage > 1) && <>
-        <li onClick={handlePrevPage}>{"<"}</li>
-      </>
+      (currentPage > 1) && <li onClick={handlePrevPage}>{"<"}</li>
     }
     {
       (actualBlock > 1) && <li onClick={handleFirstPage}>{"..."}</li>
