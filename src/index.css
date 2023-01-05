@@ -8,6 +8,7 @@
 /* Reset */
 *,*::after,*::before{
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body{

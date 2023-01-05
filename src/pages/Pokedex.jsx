@@ -21,15 +21,17 @@ const Pokedex = () => {
     e.preventDefault()
     const name = e.target.namePokemon.value
     setNamePokemon(name)
+    setCurrentPage(1)
   }
 
   const handleChangeSelect = e => {
-    console.log(e.target.value)
+    setCurrentPage(1)
     setPokemonType(e.target.value)
   }
 
   const handleChangeNumber = e => {
-    if(e.target.value > 0)
+    if(!(e.target.value > 0)) return
+    setCurrentPage(1)
       setPokemonsPerPage(e.target.value)
   }
 

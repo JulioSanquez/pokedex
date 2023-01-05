@@ -109,7 +109,7 @@
 .pokemonId__stat-bar{
     height: 20px;
     width: 100%;
-    background-color: #f6f6f6;
+    background: #afafaf44;
 }
 
 .pokemonId__stat-barProgress{
